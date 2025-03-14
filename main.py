@@ -135,7 +135,6 @@ key = 'mySecretpass'
 # document_ids = [doc.id for doc in docs]
 # print(document_ids)
 
-# delete_Profile(1)
 
 
 # key = Fernet.generate_key()
