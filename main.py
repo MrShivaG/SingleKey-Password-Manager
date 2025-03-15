@@ -20,25 +20,27 @@ def NewProfile(key, userID, Pass, Email='none', Comment='none'):
     key= generate_key(key)
 
     f=Fernet(key)
-    userID= f.encrypt(userID.encode())
-    Pass= f.encrypt(Pass.encode())
-    Email= f.encrypt(Email.encode())
-    Comment= f.encrypt(Comment.encode())
-
-    #Creating a new document in DB
-    def create_document(collection, doc_id, data):
-        doc_ref = db.collection(collection).document(doc_id)
-        doc_ref.set(data)
-        print(f"Document with ID {doc_id} created.")
-
-    #getting only collection's document as list
-    docs = db.collection('Pass_Manager_Profiles').list_documents()
-    document_ids = [doc.id for doc in docs]
-
-    #creating new Profile_cred
-    New_Profile = {'UserID':userID.decode(),'Password':Pass.decode(),'Email':Email.decode(),'Comment':Comment.decode()}
-
-    create_document("Pass_Manager_Profiles", f"Profile_{len(document_ids)+1}", New_Profile)
+    try:
+        userID= f.encrypt(userID.encode())
+        Pass= f.encrypt(Pass.encode())
+        Email= f.encrypt(Email.encode())
+        Comment= f.encrypt(Comment.encode())
+    
+        #Creating a new document in DB
+        def create_document(collection, doc_id, data):
+            doc_ref = db.collection(collection).document(doc_id)
+            doc_ref.set(data)
+            print(f"Document with ID {doc_id} created.")
+    
+        #getting only collection's document as list
+        docs = db.collection('Pass_Manager_Profiles').list_documents()
+        document_ids = [doc.id for doc in docs]
+    
+        #creating new Profile_cred
+        New_Profile = {'UserID':userID.decode(),'Password':Pass.decode(),'Email':Email.decode(),'Comment':Comment.decode()}
+    
+        create_document("Pass_Manager_Profiles", f"Profile_{len(document_ids)+1}", New_Profile)
+    e
 
 
 
