@@ -40,7 +40,12 @@ def NewProfile(key, userID, Pass, Email='none', Comment='none'):
         New_Profile = {'UserID':userID.decode(),'Password':Pass.decode(),'Email':Email.decode(),'Comment':Comment.decode()}
     
         create_document("Pass_Manager_Profiles", f"Profile_{len(document_ids)+1}", New_Profile)
-    e
+    except InvalidToken:
+        print("enter valid Key")
+
+    except Exception as e:
+        print(f"occured error : {e}")
+
 
 
 
@@ -67,6 +72,7 @@ def get_profiles(key):
 
     key= generate_key(key)
     f=Fernet(key)
+    
     docs = db.collection('Pass_Manager_Profiles').list_documents()
 
     # Extract document IDs
@@ -74,13 +80,23 @@ def get_profiles(key):
 
         doc_ref = db.collection('Pass_Manager_Profiles').document(doc.id)
         doc = doc_ref.get()
-        Profile = doc.to_dict()
-        UserID = f.decrypt(Profile['UserID'].encode()).decode()
-        Pass = f.decrypt(Profile['Password'].encode()).decode()
-        Email = f.decrypt(Profile['Email'].encode()).decode()
-        Comment = f.decrypt(Profile['Comment'].encode()).decode()
+        try:
+            Profile = doc.to_dict()
+            UserID = f.decrypt(Profile['UserID'].encode()).decode()
+            Pass = f.decrypt(Profile['Password'].encode()).decode()
+            Email = f.decrypt(Profile['Email'].encode()).decode()
+            Comment = f.decrypt(Profile['Comment'].encode()).decode()
+
+        except InvalidToken:
+            UserID = 'None'
+            Pass = 'None'
+            Email = 'None'
+            Comment = 'The Provided key is Invalid for this Profile'
         
+        except Exception as e:
+            print(f"Occured error : {e}")
         
+
         Profile_cred['UserID'].append(UserID)
         Profile_cred['Pass'].append(Pass)   
         Profile_cred['Email'].append(Email)
@@ -89,6 +105,8 @@ def get_profiles(key):
     df = pd.DataFrame(Profile_cred)
     df.index = range(1, len(df) + 1)  # Set index starting from 1
     print(df.to_string())
+
+
 
 
 #getting Document path by Index value
@@ -110,6 +128,7 @@ def generate_key(key):
 def email_validator(email):
     pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
     return bool(re.match(pattern, email))
+
 
 
 
