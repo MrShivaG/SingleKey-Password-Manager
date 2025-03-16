@@ -77,7 +77,18 @@ elif args.Command=='update':
 
         email = args.e
         Profile['Email'] = f.encrypt(email.encode()).decode()
-    
+
+    arg = {
+        'u':'UserID', 'p':'Password', 'c':"Comment"
+    }
+
+    for args, key in arg.items():
+        value = getattr(args, key, None)
+        if value:
+            Profile[key]=f.encrypt(value.encode()).decode()
+            print()
+
+
     if args.u:
         userid = args.u
         Profile['UserID'] = f.encrypt(userid.encode()).decode()
