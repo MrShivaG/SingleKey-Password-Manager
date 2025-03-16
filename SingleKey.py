@@ -64,12 +64,14 @@ elif args.Command=='list':
     main.get_profiles(args.k)
 
 elif args.Command=='update':
+    print(1)
     doc_ref = main.get_doc_ref(args.i)
     Profile = doc_ref.get().to_dict()
     key= main.generate_key(args.k)
     f=Fernet(key)
-
-    if args.e:       
+    print(2)
+    if args.e:
+        print(3)       
         if main.email_validator(args.e):
             pass
         else:
@@ -84,12 +86,17 @@ elif args.Command=='update':
         'c':"Comment"
     }
 
-    for args, key in arg.items():
-        value = getattr(args, key, None)
+    for arg, key in arg.items():
+        print(4)
+        value = getattr(args, arg, None)
+        print(args, key)
+        print(value)
 
         if value:
+            print(5)
             Profile[key]=f.encrypt(value.encode()).decode()
             print(f'{key} updated' )
+            print(6)
     
         doc_ref.update(Profile)
     
