@@ -6,13 +6,13 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import pandas as pd
 import re
+
 # Initialize Firebase Admin SDK with your service account credentials
 cred = credentials.Certificate("C:\\Users\\shiva\\Downloads\\shiva-dbd2a-firebase-adminsdk-h2lw3-5baf29f46e.json")
 firebase_admin.initialize_app(cred)
 
 # Initialize Firestore
 db = firestore.client()
-
 
 
 # Create a new Profile_cred
@@ -47,8 +47,7 @@ def NewProfile(key, userID, Pass, Email='none', Comment='none'):
         print(f"occured error : {e}")
 
 
-
-
+# Function for deleting a profile
 def delete_Profile(ProfileID):
 
     docs = db.collection('Pass_Manager_Profiles').list_documents()
@@ -60,6 +59,7 @@ def delete_Profile(ProfileID):
     print(f"Document with ID {doc_id} deleted.")
 
 
+# Function for retrieving profiles from DB  
 def get_profiles(key):
 
     Profile_cred = {
@@ -109,7 +109,7 @@ def get_profiles(key):
 
 
 
-#getting Document path by Index value
+#  Getting Document path by Index value
 def get_doc_ref(ProfileID):
     docs = db.collection('Pass_Manager_Profiles').list_documents()
     document_ids = [doc.id for doc in docs]
@@ -118,11 +118,13 @@ def get_doc_ref(ProfileID):
 
     return doc_ref
 
+
 #  generating a key by raw string
 def generate_key(key):
     Key= hashlib.sha256(key.encode()).digest()
     Key = base64.urlsafe_b64encode(Key)
     return Key
+
 
 #  Validating email structure
 def email_validator(email):
@@ -130,8 +132,7 @@ def email_validator(email):
     return bool(re.match(pattern, email))
 
 
-
-
+#  Function for Decrypting Profile's Credentials
 def decrypt_creds(key):
     try:
         with open("SingleKey.json",'r') as file:
@@ -144,35 +145,3 @@ def decrypt_creds(key):
     except Exception as e:
         print(f'eroor occured {e}')
 
-
-key = 'mySecretpass'
-# key= hashlib.sha256(string.encode()).digest()
-# key = base64.urlsafe_b64encode(key)
-
-
-
-
-# docs = db.collection('Pass_Manager_Profiles').list_documents()
-# document_ids = [doc.id for doc in docs]
-# print(document_ids)
-
-
-
-# key = Fernet.generate_key()
-# NewProfile("hel",'ddkkk','sds@','rrtfdferfds',key)
-# def read_document(collection, doc_id):
-#     doc_ref = db.collection(collection).document(doc_id)
-#     doc = doc_ref.get()
-#     if doc.exists:
-#         return doc.to_dict()
-#     else:
-#         print(f"Document with ID {doc_id} not found.")
-
-
-
-
-
-# read_document('Pass_Manager_Profiles', 'Profles_1')
-#get_profiles(key)
-#g = read_for_update(2)
-#print(g.to_dict())

@@ -1,0 +1,9 @@
+os
+json
+main
+Figlet
+hashlib
+base64
+cryptography
+argparse
+re
