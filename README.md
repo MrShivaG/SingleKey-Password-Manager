@@ -7,4 +7,12 @@ A Password Manager that uses Single key to encrypt and decrypt user's Credential
 - Made for CLI
 - Uses DB (firebase) to store profiles
 
+## Installation
+Clone the repository and install dependencies.
+
+```sh
+git clone https://github.com/username/repository.git
+cd repository
+pip install -r requirements.txt
+
 
