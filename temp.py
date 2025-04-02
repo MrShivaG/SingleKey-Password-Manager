@@ -8,7 +8,6 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import pandas as pd
 import re
-import main
 # Initialize Firebase Admin SDK with your service account credentials
 cred = credentials.Certificate("C:\\Users\\shiva\\Downloads\\shiva-dbd2a-firebase-adminsdk-h2lw3-5baf29f46e.json")
 firebase_admin.initialize_app(cred)
@@ -18,9 +17,12 @@ db = firestore.client()
 
 
 
+def generate_key(key):
+    Key= hashlib.sha256(key.encode()).digest()
+    Key = base64.urlsafe_b64encode(Key)
+    return Key
 
-
-def get_profiles(key):
+def get_profiles(key='mySecPass'):
 
     Profile_cred = {
        
@@ -30,7 +32,7 @@ def get_profiles(key):
         'Comment':[]
     }
 
-    key= main.generate_key(key)
+    key= generate_key(key)
     f=Fernet(key)
     
     docs = db.collection('Pass_Manager_Profiles').list_documents()
@@ -67,4 +69,5 @@ def get_profiles(key):
     df.index = range(1, len(df) + 1)  # Set index starting from 1
     print(df.to_string())
 
-get_profiles('')
+
+get_profiles()

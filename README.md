@@ -1,2 +1,4 @@
-# SingleKey--Password-Manager
-Password Manager 
+# SingleKey Password-Manager
+
+A Password Manager that uses Single key to encrypt and decrypt user's Credentials (username, Password, Email and Comment)
+ 
