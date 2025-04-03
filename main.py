@@ -8,7 +8,8 @@ import pandas as pd
 import re
 
 # Initialize Firebase Admin SDK with your service account credentials
-cred = credentials.Certificate("C:\\Users\\shiva\\Downloads\\shiva-dbd2a-firebase-adminsdk-h2lw3-5baf29f46e.json")
+cred = credentials.Certificate("Set the Private key file path here.")
+
 firebase_admin.initialize_app(cred)
 
 # Initialize Firestore
