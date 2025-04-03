@@ -15,4 +15,11 @@ git clone https://github.com/username/repository.git
 cd repository
 pip install -r requirements.txt
 
+```
+## Setup Firebase 
+Edit 'cred' variable of main file and assign path of your firebase credentials json file
+
+ 
+
+
 
