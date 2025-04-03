@@ -21,8 +21,8 @@ New_Profile.add_argument('-c', help='Assigning Comment')
 New_Profile.add_argument('-k', help='Will be used to pass key/Password')
 
 # subparser for deleting a profile by it's index value
-delet = subparser.add_parser('del',help="Will be used to delet the Profile by it's index value")
-delet.add_argument('-i',required=True, help='Used to assign index value of profile')
+delete = subparser.add_parser('del',help="Will be used to delete the Profile by it's index value")
+delete.add_argument('-i',required=True, help='Used to assign index value of profile')
 #delet.add_argument('-k', required=True, help='will be used to pass key/Password')
 
 # subparser for listing Profiles
