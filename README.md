@@ -35,5 +35,21 @@ Edit 'cred' variable of main file and assign that file's path
 ```sh
 python SingleKey.py add -u <userID> -k <Key> -p <Password> -c <comment> -e <Email> 
 ```
+- **Delete a profile by index**
+```sh
+python SingleKey.py del -i <Profile_Index> -k <Key>
+```
+- **List all profiles**
+```sh
+python SingleKey.py list -k <Key>
+```
 
+- **Update an existing profile**
+```sh
+python SingleKey.py update -i <Profile_Index> -u <New_UserID> -k <Key>
+python SingleKey.py update -i <Profile_Index> -p <New_Password> -k <Key>
+python SingleKey.py update -i <Profile_Index> -c <New_Comment> -k <Key>
+python SingleKey.py update -i <Profile_Index> -e <New_Email> -k <Key>
+
+```
 
