@@ -7,3 +7,5 @@ base64
 cryptography
 argparse
 re
+firebase-admin
+pandas

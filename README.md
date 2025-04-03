@@ -1,6 +1,6 @@
 # SingleKey Password-Manager
 
-A Password Manager that uses a single key to encrypt and decrypt user's Credentials (username, Password, Email and Comment)
+A Password Manager that uses a **single key** to encrypt and decrypt user's Credentials (username, Password, Email and Comment)
 
 ## Features
 - Uses a key to Encrypt and Decrypt  Credentials
@@ -28,6 +28,19 @@ Download Private key as json from Firebase
 
 Edit 'cred' variable of main file and assign that file's path
 
+## Dependencies & Requirements
+- os
+- json
+- main
+- Figlet
+- hashlib
+- base64
+- cryptography
+- argparse
+- re
+- firebase-admin
+- pandas
+
 
 ## Usage
 - **Create a new profile**
@@ -37,7 +50,7 @@ python SingleKey.py add -u <userID> -k <Key> -p <Password> -c <comment> -e <Emai
 ```
 - **Delete a profile by index**
 ```sh
-python SingleKey.py del -i <Profile_Index> -k <Key>
+python SingleKey.py del -i <Profile_Index>
 ```
 - **List all profiles**
 ```sh
@@ -53,3 +66,12 @@ python SingleKey.py update -i <Profile_Index> -e <New_Email> -k <Key>
 
 ```
 
+## How It Works
+
+- Encryption: Every profile is encrypted using the key before storing it in Firebase.
+- Decryption: The same key is required to retrieve and decrypt profile information.
+- Profile Management: Users can add, delete, update, and list their stored credentials.
+- Secure Storage: Firebase stores encrypted credentials, ensuring only authorized users can access them.
+
+## Contributing
+Pull requests are welcome! If you have suggestions or improvements, feel free to contribute.
