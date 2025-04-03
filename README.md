@@ -21,13 +21,12 @@ pip install -r requirements.txt
 Download Private key as json from Firebase
 - Go to firebase
 - Create new project
-- Got to Project settings
+- Go to Project settings
 - Select Service Accounts 
 - Then Select Python and Click on Generate new private key
 
-Edit 'cred' variable of main file and assign path of your firebase credentials json file
+Edit 'cred' variable of main file and assign that file's path
+
 
  
-
-
 
