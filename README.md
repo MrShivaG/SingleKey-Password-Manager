@@ -12,8 +12,7 @@ A Password Manager that uses a **single key** to encrypt and decrypt user's Cred
 Clone the repository and install dependencies.
 
 ```sh
-git clone https://github.com/username/repository.git
-cd repository
+git clone MrShivaG/SingleKey-Password-Manager
 pip install -r requirements.txt
 
 ```
