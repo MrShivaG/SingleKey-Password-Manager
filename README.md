@@ -5,7 +5,7 @@ A Password Manager that uses a **single key** to encrypt and decrypt user's Cred
 ## Features
 - Uses a key to encrypt and decrypt  credentials
 - Designed for fast and easy usage via the terminal
-- Uses Firebase Databse to store profiles
+- Uses Firebase Database to store profiles
 - Easy profile Management
 
 ## Installation
