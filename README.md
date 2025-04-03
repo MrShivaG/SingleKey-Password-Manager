@@ -1,6 +1,6 @@
 # SingleKey Password-Manager
 
-A Password Manager that uses a **single key** to encrypt and decrypt user's Credentials (username, Password, Email and Comment)
+A Password Manager that uses a **single key** to encrypt and decrypt user's Credentials (Username, Password, Email and Comment)
 
 ## Features
 - Uses a key to Encrypt and Decrypt  Credentials
@@ -24,22 +24,20 @@ Download Private key as json from Firebase
 - Create new project
 - Go to Project settings
 - Select Service Accounts 
-- Then Select Python and Click on Generate new private key
+- Click Generate new private key under the Python section
 
-Edit 'cred' variable of main file and assign that file's path
+Edit the <cred> variable in the main file and set the path to your Firebase private key.
 
 ## Dependencies & Requirements
 - os
-- json
-- main
-- Figlet
-- hashlib
-- base64
-- cryptography
-- argparse
 - re
-- firebase-admin
+- json
 - pandas
+- base64
+- hashlib
+- argparse
+- cryptography
+- firebase-admin
 
 
 ## Usage
@@ -65,6 +63,14 @@ python SingleKey.py update -i <Profile_Index> -c <New_Comment> -k <Key>
 python SingleKey.py update -i <Profile_Index> -e <New_Email> -k <Key>
 
 ```
+
+## Glossary
+
+- **Firebase**: A cloud-based database used to store and manage profiles securely.
+- **Profile**: A profile contains a user's credentials, including username, password, email, and comments.
+- **Profile Index**: A unique number assigned to each stored profile, used for identification when updating or deleting profiles.
+- **Key**: A secret passphrase used to encrypt and decrypt stored credentials.
+
 
 ## How It Works
 
