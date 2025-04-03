@@ -29,8 +29,8 @@ Edit 'cred' variable of main file and assign that file's path
 
 
 ## uses
-```sh
 - to create a new profile
+```sh
 python SingleKey.py add -u <userID> -k <Key> -p <Password> -c <commant> -e <Email> 
 # comment and email is optional
 
