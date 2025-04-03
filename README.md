@@ -42,7 +42,7 @@ Edit the 'cred' variable in the main.py file and set the path to your Firebase p
 
 ## Usage
 - **Create a new profile**
-    Comment and Emails are optional
+    # Comment and Emails are optional
 ```sh
 python SingleKey.py add -u <userID> -k <Key> -p <Password> -c <comment> -e <Email>
 ```
