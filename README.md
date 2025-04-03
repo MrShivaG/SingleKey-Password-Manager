@@ -41,8 +41,6 @@ Edit the 'cred' variable in the main.py file and set the path to your Firebase p
 
 
 ## Usage
-- **Create a new profile**
-    # Comment and Emails are optional
 ```sh
 python SingleKey.py add -u <userID> -k <Key> -p <Password> -c <comment> -e <Email>
 ```
@@ -63,6 +61,8 @@ python SingleKey.py update -i <Profile_Index> -c <New_Comment> -k <Key>
 python SingleKey.py update -i <Profile_Index> -e <New_Email> -k <Key>
 
 ```
+## Note
+Remember that an encrypted profile can only be decrypted using the same key.
 
 ## Glossary
 
