@@ -23,14 +23,13 @@ New_Profile.add_argument('-k', help='Will be used to pass key/Password')
 # subparser for deleting a profile by it's index value
 delete = subparser.add_parser('del',help="Will be used to delete the Profile by it's index value")
 delete.add_argument('-i',required=True, help='Used to assign index value of profile')
-#delet.add_argument('-k', required=True, help='will be used to pass key/Password')
 
 # subparser for listing Profiles
 list_Profiles = subparser.add_parser('list', help='Will be used to list all the profiles')
 list_Profiles.add_argument('-k',required=True,help='Will be used to pass key/Password')
 
 # subparser for Updating profile
-Update = subparser.add_parser('update', help='Will be used to create a new profile in DB')
+Update = subparser.add_parser('update', help='Will be used to update a profile in DB')
 Update.add_argument('-i', type=int,help='Will be used to assign Profile index value')
 Update.add_argument('-u', help='Assigning UserID')
 Update.add_argument('-p', help='Assigning Pass')

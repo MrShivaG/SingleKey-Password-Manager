@@ -1,11 +1,12 @@
 # SingleKey Password-Manager
 
-A Password Manager that uses Single key to encrypt and decrypt user's Credentials (username, Password, Email and Comment)
+A Password Manager that uses a single key to encrypt and decrypt user's Credentials (username, Password, Email and Comment)
 
 ## Features
-- Uses a key to Encrypt/Decrypt  Credentials
-- Made for CLI
-- Uses DB (firebase) to store profiles
+- Uses a key to Encrypt and Decrypt  Credentials
+- Designed for fast and easy usage via the terminal
+- Uses firebase Databse to store profiles
+- Easy Profile Management
 
 ## Installation
 Clone the repository and install dependencies.
@@ -16,7 +17,7 @@ cd repository
 pip install -r requirements.txt
 
 ```
-## Setup Firebase 
+## Setting up Firebase 
 
 Download Private key as json from Firebase
 - Go to firebase
@@ -28,10 +29,11 @@ Download Private key as json from Firebase
 Edit 'cred' variable of main file and assign that file's path
 
 
-## uses
-- to create a new profile
+## Usage
+- **Create a new profile**
+
 ```sh
-python SingleKey.py add -u <userID> -k <Key> -p <Password> -c <commant> -e <Email> 
-# comment and email is optional
+python SingleKey.py add -u <userID> -k <Key> -p <Password> -c <comment> -e <Email> 
+```
 
 
